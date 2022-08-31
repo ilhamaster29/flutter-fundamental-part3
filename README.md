@@ -1,16 +1,11 @@
-# flutter_application_3
+# Laporan Praktikum
 
-A new Flutter project.
+## Gesture Detector
 
-## Getting Started
+1. onTap
+![screenshot](images/gesturedetector_ontap.png)
+Pada gambar diatas, apabila gambar di klik, maka angka yang ada dibawahnya akan bertambah. Ini disebabkan karena perintah onTap: _incrementCounter yang disematkan pada kode.
 
-This project is a starting point for a Flutter application.
+2. onDoubleTap
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. onLongPress
