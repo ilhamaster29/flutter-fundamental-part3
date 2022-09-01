@@ -1,5 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/widgets/image_widget.dart';
+import 'package:flutter_application_3/widgets/input_fields.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +51,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
+  final TextEditingController _controller = TextEditingController.fromValue(
+      const TextEditingValue(text: "isi angka saja"));
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -78,14 +80,33 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: GestureDetector(
-            onTap: _incrementCounter,
+            onLongPress: _incrementCounter,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const MyImageWidget(),
+                const Text('You have pushed the button this many times:'),
                 Text(
                   '$_counter',
                   style: Theme.of(context).textTheme.headline4,
+                ),
+                Form(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      VerificationCodeFormField(controller: _controller),
+                      Builder(
+                        builder: (BuildContext subContext) => ElevatedButton(
+                          onPressed: () {
+                            final valid = Form.of(subContext)?.validate();
+                            if (kDebugMode) {
+                              print("valid: $valid");
+                            }
+                          },
+                          child: const Text("validate"),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             )),
